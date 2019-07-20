@@ -23,7 +23,8 @@ export default class Home extends React.Component {
       <ScrollView
         contentContainerStyle={{
           alignItems: "center",
-          marginRight: 350
+          marginRight: 350,
+          back
         }}
       >
         <TouchableOpacity onPress={this.back}>

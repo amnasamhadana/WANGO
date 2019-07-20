@@ -30,6 +30,10 @@ export default class wishlist extends React.Component {
     wish: ""
   };
 
+  back = () => {
+    this.props.navigation.navigate("Home");
+  };
+
   addwish = () => {
     const wish = firebase.database().ref("wish");
     wish.push({
@@ -60,10 +64,19 @@ export default class wishlist extends React.Component {
   render() {
     return (
       <ScrollView contentContainerStyle={styles.container}>
+        <TouchableOpacity onPress={this.back}>
+          <View style={{ alignItems: "center", marginRight: 350 }}>
+            <Image
+              style={{ width: 40, height: 40, marginTop: 10 }}
+              source={require("../assets/back.png")}
+            />
+          </View>
+        </TouchableOpacity>
         <Image
           style={{ width: 500, height: 500 }}
           source={require("../assets/logo.png")}
         />
+
         <TextInput
           value={this.state.wish}
           onChangeText={wish => this.setState({ wish: text })}

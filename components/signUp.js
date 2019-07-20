@@ -36,7 +36,7 @@ export default class signUp extends React.Component {
   };
 
   back = () => {
-    this.props.navigation.navigate("Home");
+    this.props.navigation.navigate("login");
   };
 
   upload = () => {
@@ -45,7 +45,7 @@ export default class signUp extends React.Component {
       .createUserWithEmailAndPassword(this.state.email, this.state.password)
       .then(() => {
         alert("account is created successfully, please log in");
-        this.props.navigation.navigate("App");
+        this.props.navigation.navigate("login");
       });
     const users = firebase.database().ref("users");
     users

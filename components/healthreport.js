@@ -33,7 +33,7 @@ export default class HealthReport extends React.Component {
     texts: [],
     text: ""
   };
-  addblod = () => {
+  addblood = () => {
     const healthData = firebase.database().ref("health-data");
     healthData.push({
       Blood: this.state.text,
@@ -87,26 +87,30 @@ export default class HealthReport extends React.Component {
         />
         <TextInput
           value={this.state.text}
-          onChangeText={text => this.setState({ text })}
+          onChangeText={text => this.setState({ Blood: text })}
           placeholderTextColor={"white"}
           placeholder={" Enter Blood Pressure"}
           style={styles.input}
         />
         <TextInput
           value={this.state.Average}
-          onChangeText={Average => this.setState({ Average })}
+          onChangeText={text => this.setState({ Average: text })}
           placeholderTextColor={"white"}
           placeholder={"Enter Sugar's Average"}
           style={styles.input}
         />
         <TextInput
           value={this.state.temperature}
-          onChangeText={temperature => this.setState({ temperature })}
+          onChangeText={text => this.setState({ temperate: text })}
           placeholderTextColor={"white"}
           placeholder={"Enter the temperature"}
           style={styles.input}
         />
-        <TouchableOpacity onPress={this.addblod}>
+        <TouchableOpacity
+          onPress={() => {
+            this.addblood();
+          }}
+        >
           <Text style={{ color: "#00cec9", fontSize: 25, borderWidth: 4 }}>
             Send
           </Text>
